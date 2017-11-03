@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parallax</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            border: 1px solid #010101;
+            width: 100%;
+            height: 100%;
+            background-color: #010101;
+        }
+
+        body {
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .light {
+            z-index: 1000;
+        }
+
+        .amber {
+            z-index: 1001;
+        }
+
+        .camera {
+            z-index: 1002;
+        }
+
+        .container {
+            max-width: 1002px;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pic {
+            /* 这样在图片加载的时候才不会跑掉 */
+            position: absolute;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/parallax-js/dist/parallax.min.js"></script>
+<script>
+    $(function () {
+        var parallax = document.getElementById('parallax');
+        var parallaxInstance = new Parallax(parallax, {
+            // Makes mouse input relative to the position of the scene element.
+            // No effect when gyroscope is used.
+            // 没有什么效果，但是惯性鼠标有一定差异。相对于场景元素的位置进行鼠标输入。
+//            relativeInput: true,
+
+            // Parallax will only be in effect while the cursor is over the scene element, otherwise all layers move back to their initial position. Works best in combination with relativeInput.
+            // No effect when gyroscope is used.
+            // 有明显效果。视差只有在光标处于场景元素上有效，否则所有图层都会回到初始位置。最好的工作需要结合relativeinput，这个结合看不出效果啊
+//            hoverOnly: true,
+
+            // 有明显效果。反转运动的层相对于输入。将这两个值设置为false将导致层与设备移动或光标移动。
+//            invertX: false,
+//            invertY: false,
+
+            // 有明显增大速率。将输入运动乘以这个值，增加或减小运动速度和范围。
+//            scalarX: 10,
+//            scalarY: 10,
+
+            // 有缓动效果。层间摩擦量。在1层，这些层将立即进入新的位置，低于1的部分增加了一些放松。0.1的默认值增加了一些明智的放松。尝试0.15或0.075的一些差异。
+//            frictionX: 0.1,
+//            frictionY: 0.1,
+
+            // 有效果，中心比较实用。鼠标输入的x和y源。默认的0.5是指屏幕或元素的中心，0是左边（x轴）或顶部（Y轴）边框，1是右边或底部。陀螺仪使用时没有效果。
+//            originX: 0.5,
+//            originY: 0.5,
+
+            // 使用querySelectorAll选择匹配的类型元素产生效果，不在选择器内就不会产生视差，null值代表默认选择直接子元素。（例，给需要滚动的元素加上.layer，
+//            selector: null,
+
+            // 有效，默认禁用鼠标事件。设置为false时图片不能点击和拖放，按钮不能hover，设置为true时可以拖放，按钮可以hover
+            // 。设置为true以启用与场景和层元素的交互。当设置为false的默认值时，CSS属性指针事件将不会因性能原因而被应用。仅将这个设置为true将不足以完全与所有层交互，因为它们将是重叠的。你要么设置位置：绝对的所有层的子元素，或保持pointerevents在虚假和设置鼠标事件：所有的交互元素。
+//            pointerEvents: false,
+
+            // 回调函数事件。回调函数将在视差实例完成设置后立即调用。这可能是目前占到1000ms（calibrationdelay×2）。
+//            onReady: null
+
+
+
+
+
+
+            // 下面的没有什么效果
+            // 下面的没有什么效果
+            // 下面的没有什么效果，或者没什么用
+
+
+            // 无效。难道跟单个图层有关系？限制各轴上各层的移动。把这个值设为假，就给运动带来了完全的自由。
+//            limitX: true,
+//            limitY: true,
+
+            // 小数点位置的元素将被恢复到。1是一个明智的默认，你不需要在未来几年内改变，除非你有一个非常有趣和独特的设置。
+//            precision: 1,
+
+            // Clips mouse input to the bounds of the scene. This means the movement stops as soon as the edge of the scene element is reached by the cursor.
+            // No effect when gyroscope is used, or hoverOnly is active.
+            // 无效、无差别？。剪掉鼠标输入剪辑到场景元素边界。这意味着当鼠标光标到达场景元素的边缘时，运动就会停止。？
+//            clipRelativeInput: true,
+
+            // 允许使用不同元素进行光标输入。配置属性需要一个HtmlElement，数据的查询字符串值的属性选择器。只有结合relativeinput工作，设置hoveronly也可以。
+            // 就是用另外一个元素的面板来获取光标输入，没什么用。
+//            inputElement: p,
+
+            // 应该有效，但是没什么用吧。在初始化时缓存初始x / y轴值，并计算相对于此的运动。没有什么差别
+//            calibrateX: true,
+//            calibrateY: false,
+
+        });
+        // Disables a running Parallax instance.
+//        parallaxInstance.disable();
+
+        // Enables a disabled Parallax instance.
+//        parallaxInstance.enable();
+
+        // Completely destroys a Parallax instance, allowing it to be garbage collected.
+//        parallaxInstance.destroy();
+
+
+    });
+
+</script>
+<div class="container">
+    <div id="parallax" >
+        <!--
+
+         设置这个才是重点。
+         data-depth=""
+         data-depth-x="" data-depth-y=""
+         0最小，1最大。设置为0时等于没视差
+         可以为负数，带来相反方向的视差
+
+         -->
+        <img src="img/camera.png" alt="camera" class="pic camera" data-depth="0.2">
+        <img src="img/amber.png" alt="amber" class="pic amber" data-depth="0.4">
+        <img src="img/light1.png" alt="light" class="pic light" data-depth="0.6">
+        <img src="img/light2.png" alt="light" class="pic light" data-depth="0.8">
+    </div>
+</div>
+
+
+</body>
+
+</html>
